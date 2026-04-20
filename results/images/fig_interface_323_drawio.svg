@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="430" height="280"
+     viewBox="0 0 430 280">
+  <rect width="430" height="280" fill="white"/>
+
+  <!-- Trip Planner -->
+  <rect x="30" y="75" width="115" height="85"
+        fill="white" stroke="black" stroke-width="1.5"/>
+  <text x="87" y="112"
+        text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="black">Trip</text>
+  <text x="87" y="127"
+        text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="black">Planner</text>
+
+  <!-- Interface 外枠 -->
+  <rect x="195" y="50" width="185" height="130"
+        fill="white" stroke="black" stroke-width="1.5"/>
+  <!-- Interface 左帯 縦線 -->
+  <line x1="223" y1="50" x2="223" y2="180"
+        stroke="black" stroke-width="1.5"/>
+  <!-- "Interface" ラベル (90度回転) -->
+  <text x="209" y="115"
+        text-anchor="middle" dominant-baseline="middle"
+        font-family="Helvetica,Arial,sans-serif" font-size="11" fill="black"
+        transform="rotate(-90, 209, 115)">Interface</text>
+  <text x="301" y="115.0"
+        text-anchor="middle" dominant-baseline="middle"
+        font-family="Helvetica,Arial,sans-serif" font-size="12" fill="black">User Profile</text>
+
+  <!-- Arrow: Trip Planner → Interface -->
+  <defs>
+    <marker id="arr323" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0 0, 9 3.5, 0 7" fill="#000"/>
+    </marker>
+  </defs>
+  <line x1="145" y1="117" x2="195" y2="117"
+        stroke="black" stroke-width="1.4" marker-end="url(#arr323)"/>
+
+  <!-- Interface → Methods box (垂直線) -->
+  <line x1="287" y1="180"
+        x2="287" y2="205"
+        stroke="black" stroke-width="1.2"/>
+
+  <!-- Methods box -->
+  <rect x="200" y="205" width="175" height="50"
+        fill="white" stroke="black" stroke-width="1.5"/>
+  <text x="287" y="221"
+        text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="black">getUserInfo()</text>
+  <text x="287" y="237"
+        text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="black">setUserInfo()</text>
+</svg>

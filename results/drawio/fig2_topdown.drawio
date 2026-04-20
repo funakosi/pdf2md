@@ -1,0 +1,106 @@
+<mxfile host="app.diagrams.net" modified="2026-04-20" agent="Claude Code" version="21.0.0">
+  <diagram id="topdown" name="Top Down Details">
+    <mxGraphModel dx="1422" dy="762" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="700" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- UI Controller -->
+        <mxCell id="ui" value="UI&#xa;Controller" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="340" y="25" width="140" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- Trip Planner -->
+        <mxCell id="tp" value="Trip&#xa;Planner" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="90" y="155" width="140" height="85" as="geometry" />
+        </mxCell>
+
+        <!-- Optimized Path Finder -->
+        <mxCell id="opf" value="Optimized&#xa;Path&#xa;Finder" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="155" width="140" height="85" as="geometry" />
+        </mxCell>
+
+        <!-- Session Manager -->
+        <mxCell id="sm" value="Session&#xa;Manager" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="35" y="360" width="140" height="65" as="geometry" />
+        </mxCell>
+
+        <!-- Map Controller -->
+        <mxCell id="mc" value="Map&#xa;Controller" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="245" y="360" width="140" height="65" as="geometry" />
+        </mxCell>
+
+        <!-- User Profile -->
+        <mxCell id="up" value="User&#xa;Profile" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="360" width="140" height="65" as="geometry" />
+        </mxCell>
+
+        <!-- Database Manager -->
+        <mxCell id="db" value="Database&#xa;Manager" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="490" width="140" height="65" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: Trip Planner → UI Controller (Trip Info / User Info) -->
+        <mxCell id="e1" value="Trip Info&#xa;User Info" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;endArrow=block;endFill=1;startArrow=none;fontSize=10;align=right;" edge="1" source="tp" target="ui" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: Trip Planner → Optimized Path Finder (Optimized Paths) -->
+        <mxCell id="e2a" value="Optimized Paths" style="edgeStyle=none;html=1;exitX=1;exitY=0.4;exitDx=0;exitDy=0;entryX=0;entryY=0.4;entryDx=0;entryDy=0;endArrow=block;endFill=1;startArrow=none;fontSize=10;verticalAlign=bottom;" edge="1" source="tp" target="opf" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: Optimized Path Finder → Trip Planner (Map Info) -->
+        <mxCell id="e2b" value="Map Info" style="edgeStyle=none;html=1;exitX=0;exitY=0.6;exitDx=0;exitDy=0;entryX=1;entryY=0.6;entryDx=0;entryDy=0;endArrow=block;endFill=1;startArrow=none;fontSize=10;verticalAlign=top;" edge="1" source="opf" target="tp" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: Trip Planner ↔ Session Manager (Session Info) -->
+        <mxCell id="e3" value="Session Info" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.3;exitY=1;exitDx=0;exitDy=0;entryX=0.3;entryY=0;entryDx=0;entryDy=0;endArrow=block;endFill=1;startArrow=block;startFill=1;fontSize=10;align=left;" edge="1" source="tp" target="sm" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: Trip Planner → Map Controller (Map Info) -->
+        <mxCell id="e4" value="Map Info" style="edgeStyle=none;html=1;exitX=0.7;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;endArrow=block;endFill=1;startArrow=none;fontSize=10;align=left;" edge="1" source="tp" target="mc" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: User Profile → Trip Planner (User Info) -->
+        <mxCell id="e5" value="User Info" style="edgeStyle=none;html=1;exitX=0;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.7;entryDx=0;entryDy=0;endArrow=block;endFill=1;startArrow=none;fontSize=10;" edge="1" source="up" target="tp" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: Optimized Path Finder ↔ User Profile (User Info) -->
+        <mxCell id="e6" value="User Info" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=block;endFill=1;startArrow=block;startFill=1;fontSize=10;align=right;" edge="1" source="opf" target="up" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: User Profile ↔ Database Manager (User Info) -->
+        <mxCell id="e7" value="User Info" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=block;endFill=1;startArrow=block;startFill=1;fontSize=10;align=right;" edge="1" source="up" target="db" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: Trip Planner → Database Manager (Trip Info) - long path via bottom -->
+        <mxCell id="e8" value="Trip Info" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;endArrow=block;endFill=1;startArrow=none;fontSize=10;exitPerimeter=0;entryPerimeter=0;rounded=1;" edge="1" source="tp" target="db" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="40" y="540" />
+              <mxPoint x="480" y="540" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Self-loop: Trip Planner left side -->
+        <mxCell id="e9" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.3;entryDx=0;entryDy=0;endArrow=block;endFill=1;startArrow=none;rounded=1;" edge="1" source="tp" target="tp" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="55" y="197" />
+              <mxPoint x="55" y="172" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

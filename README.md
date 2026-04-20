@@ -4,20 +4,24 @@ Claude Codeを使ってPDF形式の資料を、画像を含めてどの程度Mar
 ## 1. 前提
 - [Road Trip Advisor Web Application](https://www.bellevuecollege.edu/wp-content/uploads/sites/135/2019/04/SDD_RoadTrip.pdf) 英語で記載された学習用のサンプル仕様書を、MarkDownに変換し、最終的には日本語に翻訳して保存します。
 - 使用するツールは、VSCodeと必要な拡張機能、AIはClaude Codeを採用
-- スクショ画像はそのまま利用、フロー図等については、claude codeを使用して変換したところで完成版としている（従って正解ファイルと比べると、ずれやゆがみがある。それらはVSCode拡張機能で draw.io ファイルを編集し仕上げる前提とする。）
+- スクショ画像はそのまま利用、フロー図等については、claude codeで変換を指示したところまでで完成版としている（従って元ファイルと比べると、ずれやゆがみがある。それらはVSCode拡張機能で draw.io ファイルを編集し仕上げる前提とする。）
 ## 2. 結論
 ひとまず結論。
 
 - 文字やレイアウトは、ほとんど問題なく変換できているように見える
 - 簡単な図についての再現率は高い。
-- 複雑な図の変換精度は70%〜80%といったところ。変換に失敗した箇所はdraw.ioを使ってマニュアルで対応する形でもよいと考える。
+- 複雑な図の変換精度は70%〜80%といったところ。変換に失敗した箇所はdraw.ioを使って手動で対応する形でもよいと考える。
+- スクショ画像(Landing Page,User Preferences,Meal Preference Marker)において画像とキャプションがきちんと切り離せていない
 - 何度か試していると画像の変換にもぶれが生じるので、プロンプトの指示等で全てを解決しようと思わない方がよい。（ある程度まで変換できていたら、あとは手動で編集する方が早いと思われる）
 
 > ◾️ 変換前ファイル
 > - [Road Trip Advisor Web Application](https://www.bellevuecollege.edu/wp-content/uploads/sites/135/2019/04/SDD_RoadTrip.pdf)
 >
 > ◾️ 変換後ファイル
-> - [Road Trip Advisor Web Application(MD形式)](results/SDD_RoadTrip_jp.pdf)
+> - [Road Trip Advisor Web Application(MD形式)](results/SDD_RoadTrip_jp.md)
+> - [Road Trip Advisor Web Application(pdf形式)](results/SDD_RoadTrip_jp.pdf)
+> - [results/images](results/images/) : 変換された画像
+> - [results/drawio](results/drawio/) : draw.io形式のファイル
 
 ## 3. 準備
 必要なツール等
@@ -36,7 +40,7 @@ Claude Codeを使ってPDF形式の資料を、画像を含めてどの程度Mar
 
 ## 4. 変換実施
 
-※注意※ 以降の作業は、claude codeを使用してます。github copilotを使うと別の結果になり
+※注意※ 以降の作業は、claude codeを使用してます。github copilotを使うと別の結果になります。
 
 1. pdfをmarkdown形式に変換するように指示を出す
 ```
@@ -53,20 +57,22 @@ Claude Codeを使ってPDF形式の資料を、画像を含めてどの程度Mar
 2. 画像ファイルをDraw.io形式に変換する
 ```
 @figure1_system_overview.png をdraw.io形式で作成しなおしてください。
-オリジナルの画像は残した状態で、結果をpng形式に変換し @SDD_RoadTrip.md の対応箇所に挿入してください。
+オリジナルの画像は残した状態で、結果をsvgまたはpng形式に変換し @SDD_RoadTrip.md の対応箇所に挿入してください。
 ```
 
-ほかの画像についても同様な方法で画像をdraw.io形式に変換していく
+ほかの画像についても同様な方法で画像をdraw.io形式に変換していく。元ファイルと比較して図形の不備があれば、VSCodeの拡張機能(Draw.io integration)で編集する。
 
 3. シーケンス図をMermaid形式に変換する
 ```
 @figure_sequence.png をmermaid形式に変換してください。
 ```
 
+他にもMermaidで対応できそうなものについては、同様の方法で対応する。元ファイルと比較して図の不備がある場合は、mdファイルを直接編集して対応する。
+
 4. 最後に翻訳する
 ```
-@SDD_RoadTrip.md内のテキスト箇所について、英文を日本語に翻訳し、SDD_RoadTrop_jp.md という名前で保存して
+@SDD_RoadTrip.md内のテキスト箇所について、英文を日本語に翻訳し、SDD_RoadTrip_jp.md という名前で保存して
 ```
 
-ここまでの作業で完成したのが、[Road Trip Advisor Web Application(MD形式)](results/SDD_RoadTrip_jp.pdf)です。
-繰り返しとなりますが、何度か試すと結果も変わってくるので、プロンプトの指示内容は、その都度変更していく必要があります。
+ここまでの作業で完成したのが、[Road Trip Advisor Web Application(pdf形式)](results/SDD_RoadTrip_jp.pdf)です。
+繰り返しとなりますが、何度か試すと結果も変わってくるので、プロンプトの指示内容は、その都度変更していく必要がある。
